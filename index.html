@@ -1,0 +1,175 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Explore knowledge graphs, connected concepts, and artificial intelligence.">
+  <title>KnowledgeGraph AI | Explore Knowledge</title>
+  <link rel="stylesheet" href="style.css">
+  <script src="script.js" defer></script>
+</head>
+<body>
+  <header class="navbar">
+    <a class="logo" href="#home">
+      <span class="logo-icon">K</span>
+      KnowledgeGraph<span class="accent"> AI</span>
+    </a>
+    <nav>
+      <a href="#home">Home</a>
+      <a href="#explorer">Explorer</a>
+      <a href="#learn">Learn</a>
+      <a href="#quiz">Quiz</a>
+      <a href="#feedback">Feedback</a>
+    </nav>
+  </header>
+
+  <main>
+    <section class="hero" id="home">
+      <div class="hero-content">
+        <p class="eyebrow">DISCOVER THE POWER OF CONNECTED KNOWLEDGE</p>
+        <h1>Ideas are better<br>when they're <span class="accent">connected.</span></h1>
+        <p class="hero-description">
+          Explore how knowledge graphs connect people, concepts,
+          facts, and ideas to help us understand the world.
+        </p>
+        <a class="button" href="#explorer">Explore the Graph ↗</a>
+      </div>
+      <div class="hero-visual" aria-label="Example of connected knowledge">
+        <div class="graph-node node-center">Knowledge</div>
+        <div class="graph-node node-one">Science</div>
+        <div class="graph-node node-two">Education</div>
+        <div class="graph-node node-three">Artificial Intelligence</div>
+        <div class="graph-node node-four">Data</div>
+        <svg viewBox="0 0 400 320" aria-hidden="true">
+          <line x1="200" y1="160" x2="80" y2="65"/>
+          <line x1="200" y1="160" x2="320" y2="65"/>
+          <line x1="200" y1="160" x2="80" y2="265"/>
+          <line x1="200" y1="160" x2="320" y2="265"/>
+        </svg>
+      </div>
+    </section>
+
+    <section class="section" id="explorer">
+      <p class="eyebrow">INTERACTIVE LEARNING</p>
+      <h2>Knowledge Graph Explorer</h2>
+      <p class="section-intro">
+        Select a concept to learn about it and discover its connections.
+      </p>
+
+      <div class="explorer-layout">
+        <div class="graph-panel">
+          <div class="graph-toolbar">
+            <span>CONCEPT NETWORK</span>
+            <span class="live-dot">● Interactive</span>
+          </div>
+          <div class="network" id="network">
+            <svg class="network-lines" id="network-lines"
+                 aria-hidden="true"></svg>
+            <div class="concept-node selected" data-node="ai">Artificial Intelligence</div>
+            <div class="concept-node" data-node="ml">Machine Learning</div>
+            <div class="concept-node" data-node="data">Data</div>
+            <div class="concept-node" data-node="kg">Knowledge Graph</div>
+            <div class="concept-node" data-node="edu">Education</div>
+            <div class="concept-node" data-node="nlp">Natural Language</div>
+          </div>
+          <p class="graph-hint">Click any node to explore its relationships.</p>
+        </div>
+
+        <aside class="detail-panel" aria-live="polite">
+          <span class="detail-label">SELECTED CONCEPT</span>
+          <h3 id="concept-title">Artificial Intelligence</h3>
+          <p id="concept-description">
+            Artificial Intelligence enables computers to perform tasks
+            that typically require human intelligence.
+          </p>
+          <h4>Connected concepts</h4>
+          <div id="connections" class="connection-list"></div>
+        </aside>
+      </div>
+
+      <form class="search-form" id="search-form">
+        <label for="concept-search">Find a concept</label>
+        <div class="search-row">
+          <input id="concept-search" type="search"
+                 placeholder="Try Machine Learning..." required>
+          <button class="button" type="submit">Search</button>
+        </div>
+        <p id="search-message" class="form-message" aria-live="polite"></p>
+      </form>
+    </section>
+
+    <section class="section learning-section" id="learn">
+      <p class="eyebrow">BUILD YOUR UNDERSTANDING</p>
+      <h2>Knowledge, explained</h2>
+      <p class="section-intro">
+        Learn the essential building blocks of a knowledge graph.
+      </p>
+      <div class="learning-grid">
+        <article class="learning-card">
+          <span class="card-icon">◉</span>
+          <h3>Nodes</h3>
+          <p>Nodes represent entities or concepts, such as a person,
+             a subject, a place, or an idea.</p>
+        </article>
+        <article class="learning-card">
+          <span class="card-icon">⌁</span>
+          <h3>Relationships</h3>
+          <p>Relationships describe how two concepts are connected,
+             such as “studies” or “is part of.”</p>
+        </article>
+        <article class="learning-card">
+          <span class="card-icon">✳</span>
+          <h3>Knowledge Graphs</h3>
+          <p>A knowledge graph organizes entities and their relationships
+             into a connected network of information.</p>
+        </article>
+      </div>
+    </section>
+
+    <section class="section quiz-section" id="quiz">
+      <p class="eyebrow">TEST YOUR KNOWLEDGE</p>
+      <h2>Quick Knowledge Quiz</h2>
+      <div class="quiz-card">
+        <p id="quiz-progress">Question 1 of 3</p>
+        <h3 id="quiz-question">What does a node represent in a knowledge graph?</h3>
+        <div id="quiz-options" class="quiz-options"></div>
+        <p id="quiz-feedback" aria-live="polite"></p>
+        <button class="button" id="next-question" type="button" disabled>
+          Next Question →
+        </button>
+      </div>
+    </section>
+
+    <section class="section feedback-section" id="feedback">
+      <p class="eyebrow">YOUR OPINION MATTERS</p>
+      <h2>Share your feedback</h2>
+      <p class="section-intro">
+        Tell us what you learned and how we can improve this website.
+      </p>
+      <form class="feedback-form" id="feedback-form">
+        <label for="visitor-name">Your name</label>
+        <input id="visitor-name" name="name" required maxlength="80"
+               placeholder="Enter your name">
+
+        <label for="visitor-email">Email address</label>
+        <input id="visitor-email" name="email" type="email" required
+               placeholder="you@example.com">
+
+        <label for="visitor-message">Your feedback</label>
+        <textarea id="visitor-message" name="message" rows="4" required
+                  maxlength="1000" placeholder="Write your feedback..."></textarea>
+
+        <button class="button" type="submit">Submit Feedback</button>
+        <p id="feedback-status" class="form-message" aria-live="polite"></p>
+      </form>
+    </section>
+  </main>
+
+  <footer>
+    <a class="logo" href="#home">KnowledgeGraph<span class="accent"> AI</span></a>
+    <p>An educational demonstration of connected knowledge.</p>
+    <p>© <span id="year"></span> KnowledgeGraph AI</p>
+  </footer>
+</body>
+</html>
